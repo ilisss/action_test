@@ -18,7 +18,7 @@ jobs:
           # Установите Yandex Cloud CLI
           curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
           # Добавьте путь к yc в переменную PATH
-          echo 'export PATH=$PATH:$HOME/.local/bin' >> $GITHUB_ENV
+          echo '$HOME/.local/bin' >> $GITHUB_PATH
           # Установите yc CLI с использованием текущего refresh token
           yc init --oauth-token ${{ secrets.YANDEX_CLOUD_REFRESH_TOKEN }}
 
