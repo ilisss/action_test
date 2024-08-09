@@ -15,8 +15,12 @@ jobs:
 
       - name: Set up Yandex Cloud CLI
         run: |
+          # Установите Yandex Cloud CLI
           curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-          echo "${{ secrets.YANDEX_CLOUD_REFRESH_TOKEN }}" | yc init --oauth-token
+          # Добавьте путь к yc в переменную PATH
+          echo 'export PATH=$PATH:$HOME/.local/bin' >> $GITHUB_ENV
+          # Установите yc CLI с использованием текущего refresh token
+          yc init --oauth-token ${{ secrets.YANDEX_CLOUD_REFRESH_TOKEN }}
 
       - name: Converge
         uses: werf/actions/converge@v1.2
