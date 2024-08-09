@@ -13,12 +13,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Yandex Cloud CLI
-        uses: okar1/yc-cli-install@master
+     # - name: Set up Yandex Cloud CLI
+     #   uses: okar1/yc-cli-install@master
 
-      - name: Initialize YC CLI
-        run: |
-          yc init --oauth-token ${{ secrets.YANDEX_CLOUD_REFRESH_TOKEN }}
+     # - name: Initialize YC CLI
+     #   run: |
+     #     yc init --oauth-token ${{ secrets.YANDEX_CLOUD_REFRESH_TOKEN }}
 
       - name: Converge
         uses: werf/actions/converge@v1.2
