@@ -14,15 +14,10 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Yandex Cloud CLI
+        uses: okar1/yc-cli-install@master
+
+      - name: Initialize YC CLI
         run: |
-          # Установите Yandex Cloud CLI
-          curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-          # Добавьте путь к yc в PATH для текущего процесса
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-          # Проверьте доступность yc
-          echo 'Checking yc CLI version...'
-          yc --version
-          # Инициализируйте yc с использованием нового токена
           yc init --oauth-token ${{ secrets.YANDEX_CLOUD_REFRESH_TOKEN }}
 
       - name: Converge
